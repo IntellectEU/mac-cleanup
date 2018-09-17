@@ -32,12 +32,6 @@ rm -rfv ~/Library/Logs/CoreSimulator/* &>/dev/null
 echo 'Clear Adobe Cache Files...'
 sudo rm -rfv ~/Library/Application\ Support/Adobe/Common/Media\ Cache\ Files/* &>/dev/null
 
-echo 'Cleanup iOS Applications...'
-rm -rfv ~/Music/iTunes/iTunes\ Media/Mobile\ Applications/* &>/dev/null
-
-echo 'Remove iOS Device Backups...'
-rm -rfv ~/Library/Application\ Support/MobileSync/Backup/* &>/dev/null
-
 echo 'Cleanup XCode Derived Data and Archives...'
 rm -rfv ~/Library/Developer/Xcode/DerivedData/* &>/dev/null
 rm -rfv ~/Library/Developer/Xcode/Archives/* &>/dev/null
@@ -48,19 +42,22 @@ brew cask cleanup &>/dev/null
 rm -rfv /Library/Caches/Homebrew/* &>/dev/null
 brew tap --repair &>/dev/null
 
+echo 'Cleanup yarn Cache...'
+yarn cache clean
+
 echo 'Cleanup any old versions of gems'
 gem cleanup &>/dev/null
 
 if type "docker" > /dev/null; then
     echo 'Cleanup Docker'
-    docker container prune -f
-    docker image prune -f
-    docker volume prune -f
-    docker network prune -f
+    docker system prune -f
 fi
 
-echo 'Purge inactive memory...'
-sudo purge
+echo 'Remove pip cache...'
+rm -rfv ~/Library/Caches/pip
+
+echo 'Cleanup npm cache...'
+npm cache clean --force
 
 clear && echo 'Success!'
 
