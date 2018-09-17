@@ -39,11 +39,13 @@ Move to make it globally usable:
 
 
 ## Uninstall
+
 ```bash
 curl -fsSL "https://raw.githubusercontent.com/IntellectEU/mac-cleanup/master/installer.sh" | bash -s uninstall
 ```
 
 ## Update
+
 ```bash
 curl -fsSL "https://raw.githubusercontent.com/IntellectEU/mac-cleanup/master/installer.sh" | bash -s update
 ```
