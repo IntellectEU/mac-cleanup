@@ -18,9 +18,6 @@ fi
 
 oldAvailable=$(df / | tail -1 | awk '{print $4}')
 
-echo 'Empty the Trash on all mounted volumes and the main HDD...'
-sudo rm -rfv /Volumes/*/.Trashes &>/dev/null
-sudo rm -rfv ~/.Trash &>/dev/null
 
 echo 'Clear System Log Files...'
 sudo rm -rfv /private/var/log/asl/*.asl &>/dev/null

@@ -2,7 +2,6 @@
 Cleanup script for OSX
 
 **It does the following cleanup tasks:**
-* Empty the Trash on all mounted volumes and the main HDD
 * Clear System Log Files
 * Clear Adobe Cache Files
 * Remove iOS Device Backups
